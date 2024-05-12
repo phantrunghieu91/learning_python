@@ -50,11 +50,3 @@ class ReadWrite:
         file.write(f"\n{data}") if self.file_had_data() else file.write(data)
     except IOError as e:
       print(f"Writing to {self.file_path} error - IO error: {e}")
-
-  def main():
-    rw = ReadWrite("file")
-    rw.write_file("Hello, World!")
-    print(rw.read_file())
-
-if __name__ == "__main__":
-  ReadWrite.main()
