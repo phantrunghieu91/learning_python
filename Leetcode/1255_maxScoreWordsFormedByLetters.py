@@ -87,11 +87,15 @@ class Solution(object):
         """
         from collections import Counter
 
+        word_scores = {}
+        for word in words:
+            word_scores[word] = sum(score[ord(c) - ord("a")] * count for c, count in Counter(word).items())
+
         def bckt(i, counts):
             if i == len(words): return 0
             word = Counter(words[i])
             if word == word & counts:
-                curr = sum([score[ord(c) - ord("a")] * word[c] for c in word])
+                curr = word_scores[words[i]]
                 return max(curr + bckt(i + 1 , counts - word), bckt(i + 1, counts))
             return bckt(i + 1, counts)
 
