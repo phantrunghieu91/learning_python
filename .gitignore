@@ -1,2 +1,5 @@
 # ignore .venv folder
 .venv/
+
+# ignore GoogleSheetsApi/.env folder
+GoogleSheetsApi/.env/
